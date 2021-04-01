@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("aravindhsz/Hello-world")
+        app = docker.build("aravindhsz/helloworld_using_pipeline")
     }
 
     
