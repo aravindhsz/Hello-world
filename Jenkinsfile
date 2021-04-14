@@ -1,4 +1,4 @@
-properties([parameters([choice(choices: ['master', 'first', 'second'], description: 'selection of branch', name: 'hellobranch')])])
+properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'first', randomName: 'choice-parameter-10742793375300'], [$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'second', randomName: 'choice-parameter-10742806991700', referencedParameters: 'first']])])
 node {
     def app
 
