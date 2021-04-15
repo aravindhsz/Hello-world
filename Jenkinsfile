@@ -3,7 +3,7 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Worspace */
-        echo "This is the branch chosen: $params.branch"
+        echo "This is the branch chosen"
         checkout scm
     }
 
