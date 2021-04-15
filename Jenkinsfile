@@ -4,8 +4,7 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Worspace */
-        echo "This is the branch chosen: $params.new"
-        echo "This is the sub branch chosen$params.new"
+        echo "This is the branch chosen: $params.branch"
         checkout scm
     }
 
