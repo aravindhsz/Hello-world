@@ -11,7 +11,7 @@ node {
     def app
 
     stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
+        /* Cloning the Repository to our Worspace */
         echo "This is the branch chosen: $params.first"
         echo "This is the sub branch chosen$params.second"
         checkout scm
