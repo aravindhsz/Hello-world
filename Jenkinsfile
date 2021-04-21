@@ -11,7 +11,9 @@ node {
     code = load 'github.groovy'
   }
 
-    
+ stage('Execute') {
+     echo "executing"
+ }
 
   
 }
