@@ -7,11 +7,9 @@ node {
         checkout scm
     }
 
-    stage('Build image') {
-        
-
-        app = docker.build("aravindhsz/helloworld_using_pipeline")
-    }
+  stage('Load') {
+    code = load 'github.groovy'
+  }
 
     
 
