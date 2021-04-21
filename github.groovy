@@ -9,5 +9,8 @@ for (slave in hudson.model.Hudson.instance.slaves) {
  exitcode++;
  }
 }
+  if (exitcode > 0){
+ println("We have a Slave down, failing the build!");
+}
 }
 return this
