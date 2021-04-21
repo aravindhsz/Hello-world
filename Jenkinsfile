@@ -13,8 +13,7 @@ node {
 
  stage('Execute') {
      echo "executing"
-     def bodyText = code.getPrBody()
-     println bodyText
+     
  }
 
   
