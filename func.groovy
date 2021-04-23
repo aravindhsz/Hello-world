@@ -15,6 +15,39 @@ import hudson.security.*
     for(i in jobNames){
       println(i)
     }
+    
+    def userIDs = ['user1_ID','user2_ID', 'user3_ID']
+
+// For each project
+for(item in Hudson.instance.items) {
+  for(jobName in jobNames){
+    if(item.name.equalsIgnoreCase(jobName))
+    {
+      println(item.name)
+      /*
+      for(userID in userIDs){
+        User user = User.getOrCreateByIdOrFullName(userID)
+        String sID = user.getId() ;   
+
+        def authorizationMatrixProperty = item.getProperty(AuthorizationMatrixProperty.class)
+
+        authorizationMatrixProperty?.add(hudson.model.Item.CANCEL, sID)
+        authorizationMatrixProperty?.add(Item.WORKSPACE, sID);
+        authorizationMatrixProperty?.add(Item.BUILD, sID);
+        authorizationMatrixProperty?.add(Run.DELETE, sID);
+        authorizationMatrixProperty?.add(Run.UPDATE, sID);
+        authorizationMatrixProperty?.add(Item.CONFIGURE, sID);
+        authorizationMatrixProperty?.add(Item.DELETE, sID);
+        authorizationMatrixProperty?.add(Item.READ, sID);
+        authorizationMatrixProperty?.add(com.cloudbees.plugins.credentials.CredentialsProvider.VIEW, sID);
+
+       item.addProperty(authorizationMatrixProperty)
+       item.save()
+      }
+      */
+    }
+  }
+ }
 
      
   }
