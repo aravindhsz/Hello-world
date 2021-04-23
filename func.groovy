@@ -12,18 +12,18 @@ import hudson.security.*
     Jenkins.instance.getAllItems(AbstractItem.class).each { 
   jobNames.add(it.fullName) 
 }
-    for(i in jobNames){
-      println(i)
-    }
+   
     
     def userIDs = ['user1_ID','user2_ID', 'user3_ID']
 
 // For each project
 for(item in Hudson.instance.items) {
+  echo "item:"
   println(item.name)
   for(jobName in jobNames){
     if(item.name.equalsIgnoreCase(jobName))
     {
+      echo "items equals jobname"
       println(item.name)
       /*
       for(userID in userIDs){
