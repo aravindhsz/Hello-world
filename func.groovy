@@ -21,6 +21,10 @@ for(item in Hudson.instance.items) {
         Set<String> users = new HashSet<>();
       //adding the users to give access
         users.add('user1');
+      echo "providing access of"
+      print(item+"to user1")
+      
+      
       //providing all the permissions
        Map<Permission,Set<String>> newPermissions = new HashMap<Permission, Set<String>>()
        newPermissions.put(Item.READ,users)
