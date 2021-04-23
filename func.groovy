@@ -20,11 +20,11 @@ for(item in Hudson.instance.items) {
     {
         Set<String> users = new HashSet<>();
       //adding the users to give access
-        users.add('user3');
-      echo "providing access of the job:${jobName} to the user:user3"
+        users.add('user2');
+      echo "providing access of the job:${jobName} to the user:user2"
      // println(item+"to user1")
       
-      def userIDs = ['user3']
+      def userIDs = ['user2']
       //providing all the permissions
       for(userID in userIDs){
         User user = User.getOrCreateByIdOrFullName(userID)
