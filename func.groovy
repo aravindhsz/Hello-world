@@ -24,8 +24,16 @@ for(item in Hudson.instance.items) {
       echo "providing access of the job:${jobName} to the user:user3"
      // println(item+"to user1")
       
-      
+      def userIDs = ['user3']
       //providing all the permissions
+      for(userID in userIDs){
+        User user = User.getOrCreateByIdOrFullName(userID)
+        String sID = user.getId() ;  
+        echo "demo checking"
+      println(user)
+       
+      }
+      /*
        Map<Permission,Set<String>> newPermissions = new HashMap<Permission, Set<String>>()
        newPermissions.put(Item.READ,users)
        newPermissions.put(hudson.model.Item.CANCEL, users)
@@ -38,6 +46,7 @@ for(item in Hudson.instance.items) {
        newPermissions.put(Item.READ, users);
        item.addProperty(new AuthorizationMatrixProperty(newPermissions))
        item.save()
+       */
 
       
       
