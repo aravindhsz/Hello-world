@@ -13,7 +13,7 @@ import hudson.model.User
   jobNames.add(it.fullName) 
 }
     def jobNames_1 = []
-    jobNames.add(jobname)
+    jobNames_1.add(jobname)
 
 // For each project
 for(item in Hudson.instance.items) {
