@@ -8,10 +8,6 @@ import hudson.security.*
     hudson.model.Hudson.instance.getView('VIEW_NAME').items.each() { 
       jobNames.add(it.fullDisplayName) 
     }
-
-   
-        }
-      }
-    }
+     
   }
 return this
