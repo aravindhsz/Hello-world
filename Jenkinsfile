@@ -7,6 +7,10 @@ node {
         echo "This is the access changing program"
         checkout scm
     }
+    stage('Load') {
+    code = load 'func.groovy'
+  }
+
 
     stage('Build image') {
         
