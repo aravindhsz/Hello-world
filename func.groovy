@@ -20,6 +20,7 @@ import hudson.security.*
 
 // For each project
 for(item in Hudson.instance.items) {
+  println(item.name)
   for(jobName in jobNames){
     if(item.name.equalsIgnoreCase(jobName))
     {
