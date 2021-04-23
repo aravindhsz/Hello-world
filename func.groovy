@@ -3,6 +3,8 @@ import hudson.model.*
 import jenkins.security.*
 import jenkins.model.*
 import hudson.security.*
+import hudson.model.User   
+
 
   def rest(){
     def jobNames = []
@@ -49,6 +51,8 @@ for(item in Hudson.instance.items) {
     }
   }
  }
+    User.getAll().each { user ->   
+   println user}
 
      
   }
