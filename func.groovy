@@ -12,6 +12,9 @@ import hudson.security.*
     Jenkins.instance.getAllItems(AbstractItem.class).each { { 
   jobNames.add(it.fullName) 
 }
+    for i in jobNames{
+      println(i)
+      }
 
 
      
