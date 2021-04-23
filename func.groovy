@@ -49,7 +49,7 @@ for(item in Hudson.instance.items) {
         Set<String> users = new HashSet<>();
         users.add('user1');
        Map<Permission,Set<String>> newPermissions = new HashMap<Permission, Set<String>>()
-       newPermissions.put(Item.READ,sID)
+       newPermissions.put(Item.READ,users)
         item.addProperty(new AuthorizationMatrixProperty(newPermissions))
         item.save()
 
