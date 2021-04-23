@@ -20,21 +20,14 @@ for(item in Hudson.instance.items) {
   for(jobName in jobName_dynamic){
     if(item.name.equalsIgnoreCase(jobName))
     {
-        Set<String> users = new HashSet<>();
-      //adding the users to give access
-        users.add('user3');
-      echo "providing access of the job:${jobName} to the user:user3"
-     
-     // println(item+"to user1")
+        
+      echo "providing access of the job:${jobName} to the user:user2"
        def userIDs = ['user2']
-      //providing all the permissions
-      for(userID in userIDs){
+     // Adding the users and getting user name and user id
+        for(userID in userIDs){
         User user = User.getOrCreateByIdOrFullName(userID)
-        String sID = user.getId() ;  
-        echo "demo checking"
-      println(user)
+        String sID = user.getId() 
         def authorizationMatrixProperty = item.getProperty(AuthorizationMatrixProperty.class)
-
         authorizationMatrixProperty?.add(hudson.model.Item.CANCEL, sID)
         authorizationMatrixProperty?.add(Item.WORKSPACE, sID);
         authorizationMatrixProperty?.add(Item.BUILD, sID);
@@ -44,30 +37,7 @@ for(item in Hudson.instance.items) {
         authorizationMatrixProperty?.add(Item.DELETE, sID);
         authorizationMatrixProperty?.add(Item.READ, sID);
         authorizationMatrixProperty?.add(com.cloudbees.plugins.credentials.CredentialsProvider.VIEW, sID);
-
-       
-       
-      }
-      
-      /*
-      //providing all the permissions
-       Map<Permission,Set<String>> newPermissions = new HashMap<Permission, Set<String>>()
-       newPermissions.put(Item.READ,users)
-       newPermissions.put(hudson.model.Item.CANCEL, users)
-       newPermissions.put(Item.WORKSPACE, users);
-       newPermissions.put(Item.BUILD, users);
-       newPermissions.put(Run.DELETE, users);
-       newPermissions.put(Run.UPDATE, users);
-       newPermissions.put(Item.CONFIGURE, users);
-       newPermissions.put(Item.DELETE, users);
-       newPermissions.put(Item.READ, users);
-       newPermissions.put(com.cloudbees.plugins.credentials.CredentialsProvider.VIEW,users);
-       item.addProperty(new AuthorizationMatrixProperty(newPermissions))
-       item.save()
-      echo "provided access of ${arg_jobname} to user"
-
-      */
-      
+        }
     }
   }
  }
