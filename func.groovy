@@ -22,7 +22,7 @@ for(item in Hudson.instance.items) {
       //adding the users to give access
         users.add('user1');
       echo "providing access of"
-      print(item+"to user1")
+      println(item+"to user1")
       
       
       //providing all the permissions
