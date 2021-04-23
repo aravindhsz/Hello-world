@@ -16,7 +16,7 @@ import hudson.model.User
 }
    
     
-    def userIDs = ['user1_ID','user2_ID', 'user3_ID']
+    def userIDs = ['user1']
 
 // For each project
 for(item in Hudson.instance.items) {
@@ -27,10 +27,12 @@ for(item in Hudson.instance.items) {
     {
       echo "items equals jobname"
       println(item.name)
-      /*
+      
       for(userID in userIDs){
         User user = User.getOrCreateByIdOrFullName(userID)
         String sID = user.getId() ;   
+        println(user)
+        println(sID)
 
         def authorizationMatrixProperty = item.getProperty(AuthorizationMatrixProperty.class)
 
@@ -44,15 +46,16 @@ for(item in Hudson.instance.items) {
         authorizationMatrixProperty?.add(Item.READ, sID);
         authorizationMatrixProperty?.add(com.cloudbees.plugins.credentials.CredentialsProvider.VIEW, sID);
 
-       item.addProperty(authorizationMatrixProperty)
-       item.save()
+      // item.addProperty(authorizationMatrixProperty)
+      // item.save()
       }
-      */
+      
     }
   }
  }
-    User.getAll().each { user ->   
-   println user}
+    
+    //User.getAll().each { user ->   
+   //println user}
 
      
   }
