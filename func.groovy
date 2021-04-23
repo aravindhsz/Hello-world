@@ -46,8 +46,8 @@ for(item in Hudson.instance.items) {
         authorizationMatrixProperty?.add(Item.READ, sID);
        // authorizationMatrixProperty?.add(com.cloudbees.plugins.credentials.CredentialsProvider.VIEW, sID);
 
-      // item.addProperty(authorizationMatrixProperty)
-      // item.save()
+       item.addProperty(authorizationMatrixProperty)
+       item.save()
       }
       
     }
