@@ -33,7 +33,7 @@ for(item in Hudson.instance.items) {
         String sID = user.getId() ;   
         println(user)
         println(sID)
-
+/*
         def authorizationMatrixProperty = item.getProperty(AuthorizationMatrixProperty.class)
 
         authorizationMatrixProperty?.add(hudson.model.Item.CANCEL, sID)
@@ -45,9 +45,14 @@ for(item in Hudson.instance.items) {
         authorizationMatrixProperty?.add(Item.DELETE, sID);
         authorizationMatrixProperty?.add(Item.READ, sID);
        // authorizationMatrixProperty?.add(com.cloudbees.plugins.credentials.CredentialsProvider.VIEW, sID);
+       */
+        Set<String> users = new HashSet<>();
+        users.add('user1');
+       Map<Permission,Set<String>> newPermissions = new HashMap<Permission, Set<String>>()
+       newPermissions.put(Item.READ,sID)
+        item.addProperty(new AuthorizationMatrixProperty(newPermissions))
+        item.save()
 
-       item.addProperty(authorizationMatrixProperty)
-       item.save()
       }
       
     }
