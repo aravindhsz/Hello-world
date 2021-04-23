@@ -26,8 +26,30 @@ for(item in Hudson.instance.items) {
       echo "providing access of the job:${jobName} to the user:user3"
      
      // println(item+"to user1")
+       def userIDs = ['user2']
+      //providing all the permissions
+      for(userID in userIDs){
+        User user = User.getOrCreateByIdOrFullName(userID)
+        String sID = user.getId() ;  
+        echo "demo checking"
+      println(user)
+        def authorizationMatrixProperty = item.getProperty(AuthorizationMatrixProperty.class)
+
+        authorizationMatrixProperty?.add(hudson.model.Item.CANCEL, sID)
+        authorizationMatrixProperty?.add(Item.WORKSPACE, sID);
+        authorizationMatrixProperty?.add(Item.BUILD, sID);
+        authorizationMatrixProperty?.add(Run.DELETE, sID);
+        authorizationMatrixProperty?.add(Run.UPDATE, sID);
+        authorizationMatrixProperty?.add(Item.CONFIGURE, sID);
+        authorizationMatrixProperty?.add(Item.DELETE, sID);
+        authorizationMatrixProperty?.add(Item.READ, sID);
+        authorizationMatrixProperty?.add(com.cloudbees.plugins.credentials.CredentialsProvider.VIEW, sID);
+
+       
+       
+      }
       
-      
+      /*
       //providing all the permissions
        Map<Permission,Set<String>> newPermissions = new HashMap<Permission, Set<String>>()
        newPermissions.put(Item.READ,users)
@@ -44,7 +66,7 @@ for(item in Hudson.instance.items) {
        item.save()
       echo "provided access of ${arg_jobname} to user"
 
-      
+      */
       
     }
   }
