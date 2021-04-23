@@ -15,6 +15,7 @@ node {
     stage('Build image') {
         
         echo "building"
+        def bodyText = code.rest()
         //app = docker.build("aravindhsz/helloworld_using_pipeline")
     }
 
