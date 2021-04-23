@@ -6,25 +6,25 @@ import hudson.security.*
 import hudson.model.User   
 
 
-  def rest(jobname){
+  def rest(arg_jobname){
     //getting the names of the jobs
-    def jobNames = []
+    def jobNames_all = []
     Jenkins.instance.getAllItems(AbstractItem.class).each { 
-  jobNames.add(it.fullName) 
+  jobNames_all.add(it.fullName) 
 }
-    def jobNames_1 = []
-    jobNames_1.add(jobname)
+    def jobName_dynamic = []
+    jobName_dynamic.add(arg_jobname)
 
 // For each project
 for(item in Hudson.instance.items) {
-  for(jobName in jobNames_1){
+  for(jobName in jobName_dynamic){
     if(item.name.equalsIgnoreCase(jobName))
     {
         Set<String> users = new HashSet<>();
       //adding the users to give access
         users.add('user2');
       echo "providing access of the job:${jobName} to the user:user2"
-      echo "instead of ${jobname}"
+     
      // println(item+"to user1")
       
       
