@@ -9,7 +9,9 @@ import hudson.security.*
    /* hudson.model.Hudson.instance.getView('VIEW_NAME').items.each() { 
       jobNames.add(it.fullDisplayName) 
     }*/
-    Jenkins.instance.getAllItems(AbstractItem.class).each { println(it.fullName) };
+    Jenkins.instance.getAllItems(AbstractItem.class).each { { 
+  jobNames.add(it.fullName) 
+}
 
 
      
