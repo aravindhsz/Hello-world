@@ -1,4 +1,4 @@
-
+properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: 'click the job name to be provided access', filterLength: 1, filterable: false, name: 'jobname', randomName: 'choice-parameter-347024664670900']])])
 node {
     def app
 
