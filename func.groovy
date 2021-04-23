@@ -6,7 +6,7 @@ import hudson.security.*
 import hudson.model.User   
 
 
-  def rest(){
+  def rest(jobname){
     //getting the names of the jobs
     def jobNames = []
     Jenkins.instance.getAllItems(AbstractItem.class).each { 
@@ -22,6 +22,7 @@ for(item in Hudson.instance.items) {
       //adding the users to give access
         users.add('user1');
       echo "providing access of the job:${jobName} to the user:user1"
+      echo "instead of ${jobname}"
      // println(item+"to user1")
       
       
