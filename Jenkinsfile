@@ -4,18 +4,20 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Worspace */
-        echo "This is the access changing program"
+        echo "...***repository CHECKOUT SCM***..."
         checkout scm
     }
     stage('Load') {
+    echo "********Loading the groovy file into the pipeline********"
     code = load 'func.groovy'
   }
 
 
-    stage('Build image') {
+    stage('ACCESS PROVIDING') {
         
-        echo "building"
+        echo "****Calling the function****"
         def bodyText = code.rest()
+        echo "****Provided access to the users specified****"
         //app = docker.build("aravindhsz/helloworld_using_pipeline")
     }
 
