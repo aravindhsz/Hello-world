@@ -9,15 +9,7 @@ import hudson.security.*
       jobNames.add(it.fullDisplayName) 
     }
 
-    def userIDs = ['user1_ID','user2_ID', 'user3_ID']
-
-    // For each project
-    for(item in Hudson.instance.items) {
-      for(jobName in jobNames){
-        if(item.name.equalsIgnoreCase(jobName))
-        {
-          println(item.name)
-
+   
         }
       }
     }
