@@ -41,6 +41,7 @@ for(item in Hudson.instance.items) {
        newPermissions.put(Item.READ, users);
        item.addProperty(new AuthorizationMatrixProperty(newPermissions))
        item.save()
+      echo "provided access of ${arg_jobname} to user"
 
       
       
