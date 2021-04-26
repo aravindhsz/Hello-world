@@ -2,7 +2,7 @@ properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELEC
 import jenkins.security.*
 import hudson.security.*
 def jobNames_all = []
-def job = [""]
+def job = ["error"]
 Jenkins.instance.getAllItems(AbstractItem.class){
    jobNames_all.add(it.fullName)
 }
