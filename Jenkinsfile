@@ -19,7 +19,7 @@ node {
 
     stage('ACCESS PROVIDING') {
         
-        echo "****Calling the function using the jobname :$params.jobname****"
+        echo "****Calling the function using the jobname :$params.jobnames****"
         def arg = jobnames
         def bodyText = code.rest(arg)
         echo "****Provided access to the users specified****"
