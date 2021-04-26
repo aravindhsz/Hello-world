@@ -1,4 +1,8 @@
-properties([parameters([choice(choices: ['first_pipeline', 'error', 'node_check','test1','test2'], description: 'click the jobname to get access', name: 'jobname')])])
+properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobname', randomName: 'choice-parameter-273641049158099', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''import jenkins.model.*
+import hudson.model.*
+def job=[]
+Jenkins.instance.getAllItems(AbstractItem.class).each {job.add(it.fullName) };
+return job''']]]])])
 node {
     def app
 
