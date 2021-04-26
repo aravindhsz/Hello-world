@@ -6,7 +6,7 @@ Jenkins.instance.getAllItems(AbstractItem.class){
    jobNames_all.add(it.fullName)
 }
 
-return jobNames
+return ["error"]
 ''']]]])])
 node {
     def app
