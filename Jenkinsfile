@@ -1,6 +1,6 @@
 properties([parameters([[$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobname', randomName: 'choice-parameter-265213950348800', referencedParameters: '', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''
     def gettags =  Jenkins.instance.getAllItems(AbstractItem.class)
-    return gettags
+    return "ji"
   ''']]]])])
 node {
     def app
