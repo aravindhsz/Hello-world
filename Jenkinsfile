@@ -1,4 +1,11 @@
-properties([parameters([choice(choices: ['first_pipeline', 'error', 'node_check','test1','test2'], description: 'click the jobname to get access', name: 'jobname')])])
+properties([parameters([[$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobname', randomName: 'choice-parameter-265213950348800', referencedParameters: '', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''def jobNames_all = []
+    Jenkins.instance.getAllItems(AbstractItem.class).each { 
+  jobNames_all.add(it.fullName) 
+}
+
+jobNames.each { job ->
+return job}
+}''']]]])])
 node {
     def app
 
