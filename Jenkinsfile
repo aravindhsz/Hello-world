@@ -1,12 +1,12 @@
-properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobnames', randomName: 'choice-parameter-269806977912799', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''import hudson.model.*    
+properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobnames', randomName: 'choice-parameter-270089582803000', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''import hudson.model.*    
 import jenkins.security.*
 import hudson.security.*
-
-def new =jenkins.instance.getAllItems(AbstractItem.class)
-return new.each {
-   it.fullName
+def jobNames_all = []
+Jenkins.instance.getAllItems(AbstractItem.class){
+   jobNames_all.add(it.fullName)
 }
 
+return jobNames
 ''']]]])])
 node {
     def app
