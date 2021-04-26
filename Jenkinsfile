@@ -2,7 +2,7 @@ properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELEC
 import jenkins.security.*
 import hudson.security.*
 
-def new =Jenkins.instance.getAllItems(AbstractItem.class)
+def new =jenkins.instance.getAllItems(AbstractItem.class)
 return new.each {
    it.fullName
 }
