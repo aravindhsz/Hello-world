@@ -3,8 +3,8 @@ import jenkins.security.*
 import jenkins.model.*
 import hudson.security.*
 import hudson.model.User
-
- return Jenkins.instance.getAllItems(AbstractItem.class)
+def get =Jenkins.instance.getAllItems(AbstractItem.class)
+return get
     ''']]]])])
 node {
     def app
