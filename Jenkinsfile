@@ -1,4 +1,4 @@
-properties([parameters([choice(choices: ['first_pipeline', 'error', 'node_check','test1','test2'], description: 'click the jobname to get access', name: 'jobname')])])
+properties([parameters([choice(choices: ['first_pipeline', 'error', 'node_check','test1','test2','access_provider'], description: 'click the jobname to get access', name: 'jobname')])])
 node {
     def app
 
