@@ -1,6 +1,8 @@
 properties([parameters([[$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobname', randomName: 'choice-parameter-265213950348800', referencedParameters: '', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''
 def gettags = ("git ls-remote -t -h https://github.com/aravindhsz/NodeApp.git").execute()
-return "hi"''']]]])])
+return gettags.text.readLines().collect { 
+  it.split()[1].replaceAll(\'refs/heads/\', \'\').replaceAll(\'refs/tags/\', \'\').replaceAll("\\\\^\\\\{\\\\}", \'\')
+}''']]]])])
 node {
     def app
 
