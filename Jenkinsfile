@@ -1,11 +1,9 @@
-properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobnames', randomName: 'choice-parameter-269426239755600', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''import hudson.model.*    
+properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobnames', randomName: 'choice-parameter-269599236232300', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''import hudson.model.*    
 import jenkins.security.*
 import hudson.security.*
 
-def jobNames = []
-hudson.model.Hudson.instance.getView(\'VIEW_NAME\').items.each() { 
-  jobNames.add(it.fullDisplayName) 
-}
+def jobNames = ["one","to","three"]
+
 return jobNames''']]]])])
 node {
     def app
