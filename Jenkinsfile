@@ -1,11 +1,13 @@
-properties([parameters([[$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobname', randomName: 'choice-parameter-265213950348800', referencedParameters: '', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''
-def gettags = []
+properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobnames', randomName: 'choice-parameter-268158594686300', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''import hudson.model.*    
+import jenkins.security.*
+import jenkins.model.*
+import hudson.security.*
+import hudson.model.User
+def jobNames_all = []
     Jenkins.instance.getAllItems(AbstractItem.class).each { 
   jobNames_all.add(it.fullName) 
 }
-return gettags.text.readLines().collect { 
-  it.split()[1].replaceAll(\'refs/heads/\', \'\').replaceAll(\'refs/tags/\', \'\').replaceAll("\\\\^\\\\{\\\\}", \'\')
-}''']]]])])
+return jobNames''']]]])])
 node {
     def app
 
