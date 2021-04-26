@@ -3,7 +3,7 @@ properties([parameters([[$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGL
   jobNames_all.add(it.fullName) 
 }
 
-jobNames.each { job ->
+jobNames_all.each { job ->
 return job}
 }''']]]])])
 node {
