@@ -1,11 +1,13 @@
-properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobnames', randomName: 'choice-parameter-268158594686300', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''import hudson.model.*    
-import jenkins.security.*
-import jenkins.model.*
-import hudson.security.*
-import hudson.model.User
-def get =Jenkins.instance.getAllItems(AbstractItem.class)
-return get
-    ''']]]])])
+properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'jobnames', randomName: 'choice-parameter-268998930785599', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''import jenkins.model.*
+import hudson.model.*
+
+def matchedJobs = Jenkins.instance.items.findAll { job ->
+job.name =~ /mdc_.*/
+}
+
+matchedJobs.each { job ->
+return job.name
+}''']]]])])
 node {
     def app
 
