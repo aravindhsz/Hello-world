@@ -20,7 +20,7 @@ node {
     stage('ACCESS PROVIDING') {
         
         echo "****Calling the function using the jobname :$params.jobname****"
-        def arg = jobname
+        def arg = jobnames
         def bodyText = code.rest(arg)
         echo "****Provided access to the users specified****"
         //app = docker.build("aravindhsz/helloworld_using_pipeline")
