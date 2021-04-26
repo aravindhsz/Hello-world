@@ -3,11 +3,9 @@ import jenkins.security.*
 import jenkins.model.*
 import hudson.security.*
 import hudson.model.User
-def jobNames_all = []
-    Jenkins.instance.getAllItems(AbstractItem.class).each { 
-  jobNames_all.add(it.fullName) 
-}
-return jobNames''']]]])])
+
+ return Jenkins.instance.getAllItems(AbstractItem.class)
+    ''']]]])])
 node {
     def app
 
